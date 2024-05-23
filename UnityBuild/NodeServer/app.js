@@ -17,7 +17,7 @@ wss.on('connection', function connection (client) {
   // on new message recieved
   client.on('message', function incoming (data) {
     // get data from string
-    var [udid, x, y, z] = data.toString().split('\t')
+    var [udid, x, y, z, p1, p2, p3, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35] = data.toString().split('\t')
     // store data to players object
     players[udid] = {
       position: {
@@ -25,7 +25,44 @@ wss.on('connection', function connection (client) {
         y: parseFloat(y) + 1,
         z: parseFloat(z)
       },
-      timestamp: Date.now()
+      timestamp: Date.now(),
+	  pellets: [
+		parseInt(p1),
+		parseInt(p2),
+		parseInt(p3),
+		parseInt(p4),
+		parseInt(p5),
+		parseInt(p6),
+		parseInt(p7),
+		parseInt(p8),
+		parseInt(p9),
+		parseInt(p10),
+		parseInt(p11),
+		parseInt(p12),
+		parseInt(p13),
+		parseInt(p14),
+		parseInt(p15),
+		parseInt(p16),
+		parseInt(p17),
+		parseInt(p18),
+		parseInt(p19),
+		parseInt(p20),
+		parseInt(p21),
+		parseInt(p22),
+		parseInt(p23),
+		parseInt(p24),
+		parseInt(p25),
+		parseInt(p26),
+		parseInt(p27),
+		parseInt(p28),
+		parseInt(p29),
+		parseInt(p30),
+		parseInt(p31),
+		parseInt(p32),
+		parseInt(p33),
+		parseInt(p34),
+		parseInt(p35)
+	  ]
     }
     // save player udid to the client
     client.udid = udid
