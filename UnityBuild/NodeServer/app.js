@@ -17,7 +17,7 @@ wss.on('connection', function connection (client) {
   // on new message recieved
   client.on('message', function incoming (data) {
     // get data from string
-    var [udid, x, y, z, p1, p2, p3, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35] = data.toString().split('\t')
+    var [udid, x, y, z, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, amount] = data.toString().split('\t')
     // store data to players object
     players[udid] = {
       position: {
@@ -27,6 +27,7 @@ wss.on('connection', function connection (client) {
       },
       timestamp: Date.now(),
 	  pellets: [
+		parseInt(p0),
 		parseInt(p1),
 		parseInt(p2),
 		parseInt(p3),
@@ -60,9 +61,9 @@ wss.on('connection', function connection (client) {
 		parseInt(p31),
 		parseInt(p32),
 		parseInt(p33),
-		parseInt(p34),
-		parseInt(p35)
-	  ]
+		parseInt(p34)
+	  ],
+	  amountOfPellets: parseInt(amount)
     }
     // save player udid to the client
     client.udid = udid
